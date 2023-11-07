@@ -11,11 +11,14 @@ createApp({
     methods : {
         getEmailAdress(){
             for(let i = 0; i < 10; i++){
-                axios.get(`${apiURL}${apiEndPoint}`).then((res) => {
+                axios.get(`${this.apiURL}${this.apiEndPoint}`).then((res) => {
                     this.emails.push(res.data.response)
                 })
             }
             
         }
     },
+    mounted(){
+        this.getEmailAdress()
+    }
 }).mount('#app')
